@@ -41,13 +41,20 @@ namespace compareo
             List<string> modifiedFilesToBeMirrored = GetModifiedFilesToBeMirrored(srcDir, desDir);
             List<string> filesThatHaveBeenDeleted = GetFilesInDesButNotSrc(srcDir, desDir);
 
-            Log.WriteLine("New files in the source directory: ");
-            for( int i = 0; i < newFilesToBeMirrored.Count; i++ )
+
+            if ( newFilesToBeMirrored != null )
             {
-                Log.WriteLine("\t" + newFilesToBeMirrored[i]);
+                if ( newFilesToBeMirrored.Count > 0 )
+                {
+                    Log.WriteLine("New files in the source directory: ");
+                    for (int i = 0; i < newFilesToBeMirrored.Count; i++)
+                    {
+                        Log.WriteLine("\t" + newFilesToBeMirrored[i]);
+                    }
+                }
             }
 
-            if (modifiedFilesToBeMirrored != null)
+            if ( modifiedFilesToBeMirrored != null )
             {
                 if ( modifiedFilesToBeMirrored.Count > 0 )
                 {
@@ -59,10 +66,16 @@ namespace compareo
                 }
             }
 
-            Log.WriteLine("Files that have been deleted from the source directory: ");
-            for (int i = 0; i < filesThatHaveBeenDeleted.Count; i++)
+            if ( filesThatHaveBeenDeleted != null )
             {
-                Log.WriteLine("\t" + filesThatHaveBeenDeleted[i]);
+                if (filesThatHaveBeenDeleted.Count > 0)
+                {
+                    Log.WriteLine("Files that have been deleted from the source directory: ");
+                    for (int i = 0; i < filesThatHaveBeenDeleted.Count; i++)
+                    {
+                        Log.WriteLine("\t" + filesThatHaveBeenDeleted[i]);
+                    }
+                }
             }
 
             Log.Close();            
