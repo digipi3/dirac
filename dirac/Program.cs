@@ -47,10 +47,16 @@ namespace compareo
                 Log.WriteLine("\t" + newFilesToBeMirrored[i]);
             }
 
-            Log.WriteLine("More recently modified files in the source directory: ");
-            for (int i = 0; i < modifiedFilesToBeMirrored.Count; i++)
+            if (modifiedFilesToBeMirrored != null)
             {
-                Log.WriteLine("\t" + modifiedFilesToBeMirrored[i]);
+                if ( modifiedFilesToBeMirrored.Count > 0 )
+                {
+                    Log.WriteLine("More recently modified files in the source directory: ");
+                    for (int i = 0; i < modifiedFilesToBeMirrored.Count; i++)
+                    {
+                        Log.WriteLine("\t" + modifiedFilesToBeMirrored[i]);
+                    }
+                }
             }
 
             Log.WriteLine("Files that have been deleted from the source directory: ");
